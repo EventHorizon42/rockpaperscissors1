@@ -12,7 +12,7 @@
     
     //Computer choice of rock/paper/scissors
 
-    let computerChoice; //declaring choice variable
+    let computerChoice; //declaring computer choice variable
 
     function getComputerChoice() {
           let randomNumber = Math.floor(Math.random()*3); //randomly choosing 0-1; multiplying by 300 to make the three ranges easier to ascertain
@@ -30,17 +30,86 @@
     
     //Player input of choice
 
-    
+    let playerChoice; //declaring player choice variable
+
+    function getPlayerChoice() {
+      let playerValidChoice; //declaring player choice validity check
+      playerChoice = prompt("Type either 'Rock', 'Paper', or 'Scissors'.");
+      playerChoice = playerChoice.toLowerCase();
+      //need to validate choice - maybe a while loop
+      if (playerChoice === "rock"||playerChoice === "paper"||playerChoice === "scissors") {
+        playerValidChoice = "true";
+      } else {
+        playerValidChoice = "false";
+      }
+      while (playerValidChoice==="false") {
+        playerChoice = prompt("Invalid choice - try again. Type either 'Rock', 'Paper', or 'Scissors'.");
+        playerChoice = playerChoice.toLowerCase();
+        if (playerChoice === "rock"||playerChoice === "paper"||playerChoice === "scissors") {
+          playerValidChoice = "true";
+          break;
+        } else {
+          //nothing needed here - will repeat the loop
+        } 
+      }
+      console.log(playerValidChoice);
+    }
+
+    getPlayerChoice();
+    console.log(playerChoice);
+
+
+    //console.log(playerChoice); 
 
 
     //Logic for determining the winner
 
+    let result;
 
+    if (computerChoice==="rock") {
+      if (playerChoice==="scissors") { //rock beats scissors
+        result = "cpu"; //computer wins
+      } else if (playerChoice==="paper") { //paper beats rock
+        result = "player"; //player wins
+      } else {
+        result = "tie"; //tie
+      }
+    } else if (computerChoice==="paper") {
+      if (playerChoice==="rock") { //paper beats rock
+        result = "cpu"; //computer wins
+      } else if (playerChoice==="scissors") { //scissors beats paper
+        result = "player"; //player wins
+      } else {
+        result = "tie"; //tie
+      }
+    } else {
+      if (playerChoice==="paper") { //scissors beats paper
+        result = "cpu"; //computer wins
+      } else if (playerChoice==="rock") { //rock beats scissors
+        result = "player"; //player wins
+      } else {
+        result = "tie"; //tie
+      }      
+    }
+
+    console.log(result);
+    
 
     //result message
+    let message; //declaring the message variable
+   
+    if (result==="cpu") { //Computer victory message
+      message = "The computer wins.";
+    } else if (result==="player") { //player victory message
+      message = "You win!";
+    } else { //tie message
+      message = "Nobody wins - try again.";
+    }
+
+    console.log(message);
 
 
-    //play again(?)
+    //play again prompt
   
   </script>
 
