@@ -8,22 +8,40 @@
 <body>
 
   <script>
-    // Your JavaScript goes here!
     //console.log("Hello, World!");
     
     //Computer choice of rock/paper/scissors
+
+    let computerChoice; //declaring choice variable
+
     function getComputerChoice() {
-          let randomNumber = Math.floor(Math.random()); //randomly choosing 0-1; 0-.33, .34-.67, .68-1 will be the three ranges
-          let computerChoice; //declaring choice variable
-          if (randomNumber<(1/3)) {
+          let randomNumber = Math.floor(Math.random()*3); //randomly choosing 0-1; multiplying by 300 to make the three ranges easier to ascertain
+          //console.log(randomNumber);
+          if (randomNumber<(1)) {
             computerChoice = "rock";
-          } else if (randomNumber>=(1/3)&&randomNumber<(2/3)) {
+          } else if (randomNumber>=(1)&&randomNumber<(2)) {
             computerChoice = "paper";
           } else {
             computerChoice = "scissors";
           }
     }
+    getComputerChoice();
+    //console.log(computerChoice);
     
+    //Player input of choice
+
+    
+
+
+    //Logic for determining the winner
+
+
+
+    //result message
+
+
+    //play again(?)
+  
   </script>
 
 </body>
